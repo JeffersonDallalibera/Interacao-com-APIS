@@ -113,27 +113,33 @@ Em vez de criar cada requisição manualmente, você pode importar toda a especi
 
 Para disponibilizar sua API e o Swagger UI na nuvem gratuitamente:
 
-### 1. Criar repositório e subir os arquivos
+### 1. Clonar ou subir para o GitHub
 ```bash
+# Para clonar o repositório oficial do curso:
+git clone https://github.com/JeffersonDallalibera/Interacao-com-APIS.git
+cd Interacao-com-APIS
+node server.js
+
+# Ou para publicar no seu próprio GitHub pessoal:
 git init
 git add .
 git commit -m "feat: API estática com OpenAPI 3.0 e Swagger UI"
 git branch -M main
-git remote add origin https://github.com/SEU-USUARIO/api-estatica-senai.git
+git remote add origin https://github.com/SEU-USUARIO/Interacao-com-APIS.git
 git push -u origin main
 ```
 
 ### 2. Ativar o GitHub Pages
-1. Acesse o seu repositório no GitHub.
+1. Acesse o repositório no GitHub.
 2. Vá em **Settings** > **Pages** (no menu lateral esquerdo).
 3. Em **Build and deployment** > **Source**, selecione **Deploy from a branch**.
 4. Em **Branch**, selecione `main` e a pasta `/(root)`. Clique em **Save**.
-5. Aguarde cerca de 1 a 2 minutos. O GitHub gerará uma URL pública, por exemplo:
-   - `https://SEU-USUARIO.github.io/api-estatica-senai/`
+5. Aguarde cerca de 1 a 2 minutos. O GitHub gerará uma URL pública mundial:
+   - `https://jeffersondallalibera.github.io/Interacao-com-APIS/`
 
 🎉 **Pronto!** O Swagger UI estará no ar e os endpoints funcionarão em qualquer projeto Front-End:
 ```text
-https://SEU-USUARIO.github.io/api-estatica-senai/api/ordens.json
+https://jeffersondallalibera.github.io/Interacao-com-APIS/api/ordens.json
 ```
 
 ---
