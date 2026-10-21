@@ -1,0 +1,75 @@
+[
+  {
+    "id": 1,
+    "numero": "OS-1042",
+    "cliente": "Indústria Metalúrgica Alfa",
+    "status": "Em Transporte",
+    "prioridade": "Alta",
+    "item": "Motor Trifásico 15HP",
+    "quantidade": 2,
+    "data": "2026-10-20",
+    "destino": "Chapecó - SC",
+    "responsavel": "Carlos Eduardo"
+  },
+  {
+    "id": 2,
+    "numero": "OS-1043",
+    "cliente": "Alimentos Vale Verde",
+    "status": "Pendente",
+    "prioridade": "Média",
+    "item": "Sensor Óptico de Linha",
+    "quantidade": 10,
+    "data": "2026-10-20",
+    "destino": "Maravilha - SC",
+    "responsavel": "Mariana Souza"
+  },
+  {
+    "id": 3,
+    "numero": "OS-1044",
+    "cliente": "Têxtil Catarinense S.A.",
+    "status": "Concluído",
+    "prioridade": "Baixa",
+    "item": "Rolamento Blindado 6205",
+    "quantidade": 50,
+    "data": "2026-10-19",
+    "destino": "Joinville - SC",
+    "responsavel": "Felipe Mendes"
+  },
+  {
+    "id": 4,
+    "numero": "OS-1045",
+    "cliente": "Logística & Cargas Sul",
+    "status": "Em Transporte",
+    "prioridade": "Alta",
+    "item": "Inversor de Frequência WEG",
+    "quantidade": 1,
+    "data": "2026-10-20",
+    "destino": "São Miguel do Oeste - SC",
+    "responsavel": "Lucas Silveira"
+  },
+  {
+    "id": 5,
+    "numero": "OS-1046",
+    "cliente": "Cooperativa AgroIndustrial",
+    "status": "Pendente",
+    "prioridade": "Alta",
+    "item": "Válvula Solenoide 24V",
+    "quantidade": 8,
+    "data": "2026-10-20",
+    "destino": "Pinhalzinho - SC",
+    "responsavel": "Mariana Souza",
+    "observacoes": "Carga especial. Protocolo de auditoria em /api/desafio-bonus.json"
+  },
+  {
+    "id": 6,
+    "numero": "OS-1047",
+    "cliente": "Frigorífico Aurora Coop",
+    "status": "Concluído",
+    "prioridade": "Média",
+    "item": "CLP Siemens S7-1200",
+    "quantidade": 1,
+    "data": "2026-10-18",
+    "destino": "Chapecó - SC",
+    "responsavel": "Carlos Eduardo"
+  }
+]

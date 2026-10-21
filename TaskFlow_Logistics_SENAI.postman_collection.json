@@ -1,0 +1,208 @@
+{
+  "info": {
+    "_postman_id": "7f8b9c10-2345-4a67-8901-abcdef123456",
+    "name": "TaskFlow Logistics API • SESI SENAI",
+    "description": "Coleção oficial de testes práticos de homologação de API RESTful para a Aula 03 da Unidade Curricular Interação com APIs (Curso Técnico SENAI - Prof. Jefferson Miguel Dallalibera).\n\nInclui testes automatizados (pm.test) e o endpoint secreto de Easter Egg.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "base_url",
+      "value": "http://localhost:3000",
+      "type": "string"
+    }
+  ],
+  "item": [
+    {
+      "name": "1. Listar Ordens de Serviço (GET)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 200 OK\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Tempo de resposta é menor que 500ms\", function () {",
+              "    pm.expect(pm.response.responseTime).to.be.below(500);",
+              "});",
+              "",
+              "pm.test(\"Retorna um array de ordens\", function () {",
+              "    var jsonData = pm.response.json();",
+              "    pm.expect(jsonData).to.be.an(\"array\");",
+              "    pm.expect(jsonData.length).to.be.above(0);",
+              "});",
+              "",
+              "pm.test(\"Estrutura da OS contém numero, cliente, status e destino\", function () {",
+              "    var primeiraOS = pm.response.json()[0];",
+              "    pm.expect(primeiraOS).to.have.property(\"numero\");",
+              "    pm.expect(primeiraOS).to.have.property(\"cliente\");",
+              "    pm.expect(primeiraOS).to.have.property(\"status\");",
+              "    pm.expect(primeiraOS).to.have.property(\"destino\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/ordens.json",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "ordens.json"
+          ]
+        },
+        "description": "Retorna todas as ordens de serviço de transporte e manutenção industrial ativas."
+      },
+      "response": []
+    },
+    {
+      "name": "2. Listar Catálogo de Produtos (GET)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 200 OK\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Produtos possuem código, nome, categoria e preco\", function () {",
+              "    var produto = pm.response.json()[0];",
+              "    pm.expect(produto).to.have.property(\"codigo\");",
+              "    pm.expect(produto).to.have.property(\"nome\");",
+              "    pm.expect(produto).to.have.property(\"preco\");",
+              "    pm.expect(produto.preco).to.be.a(\"number\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/produtos.json",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "produtos.json"
+          ]
+        },
+        "description": "Consulta o estoque do armazém central com motores, CLPs e sensores."
+      },
+      "response": []
+    },
+    {
+      "name": "3. Listar Clientes Industriais (GET)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"Status code é 200 OK\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Clientes possuem razão social e CNPJ\", function () {",
+              "    var cliente = pm.response.json()[0];",
+              "    pm.expect(cliente).to.have.property(\"razao_social\");",
+              "    pm.expect(cliente).to.have.property(\"cnpj\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/clientes.json",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "clientes.json"
+          ]
+        },
+        "description": "Relação de indústrias e clientes parceiros no estado de SC."
+      },
+      "response": []
+    },
+    {
+      "name": "4. [Easter Egg Secreto] Desafio Bônus (+1 Ponto)",
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test(\"🎉 Status 200 OK - EASTER EGG ENCONTRADO!\", function () {",
+              "    pm.response.to.have.status(200);",
+              "});",
+              "",
+              "pm.test(\"Contém código de validação do SENAI\", function () {",
+              "    var data = pm.response.json();",
+              "    pm.expect(data).to.have.property(\"codigo_validacao\");",
+              "    pm.expect(data.recompensa).to.include(\"+1.0 PONTO\");",
+              "    pm.expect(data.recado_do_professor).to.include(\"Não mostre para o seu colega ao lado\");",
+              "});"
+            ],
+            "type": "text/javascript"
+          }
+        }
+      ],
+      "request": {
+        "method": "GET",
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json",
+            "type": "text"
+          }
+        ],
+        "url": {
+          "raw": "{{base_url}}/api/desafio-bonus.json",
+          "host": [
+            "{{base_url}}"
+          ],
+          "path": [
+            "api",
+            "desafio-bonus.json"
+          ]
+        },
+        "description": "Rota secreta não documentada no Swagger. Vale 1 ponto bônus na média!"
+      },
+      "response": []
+    }
+  ]
+}

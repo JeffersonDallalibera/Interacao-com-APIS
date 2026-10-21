@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "codigo": "PRD-001",
+    "nome": "Motor Trifásico 15HP",
+    "categoria": "Elétrica Industrial",
+    "preco": 3450.00,
+    "estoque": 14,
+    "unidade": "UN",
+    "localizacao": "Corredor A - Prateleira 02"
+  },
+  {
+    "id": 2,
+    "codigo": "PRD-002",
+    "nome": "CLP Siemens S7-1200",
+    "categoria": "Automação",
+    "preco": 4890.00,
+    "estoque": 6,
+    "unidade": "UN",
+    "localizacao": "Armário Seguro 01"
+  },
+  {
+    "id": 3,
+    "codigo": "PRD-003",
+    "nome": "Inversor de Frequência WEG 7.5kW",
+    "categoria": "Automação",
+    "preco": 2150.00,
+    "estoque": 9,
+    "unidade": "UN",
+    "localizacao": "Corredor B - Prateleira 04"
+  },
+  {
+    "id": 4,
+    "codigo": "PRD-004",
+    "nome": "Sensor Indutivo M18",
+    "categoria": "Instrumentação",
+    "preco": 185.50,
+    "estoque": 45,
+    "unidade": "PC",
+    "localizacao": "Gaveteiro 12"
+  },
+  {
+    "id": 5,
+    "codigo": "PRD-005",
+    "nome": "Rolamento Blindado 6205-2RS",
+    "categoria": "Mecânica",
+    "preco": 42.00,
+    "estoque": 120,
+    "unidade": "PC",
+    "localizacao": "Corredor C - Caixa 18"
+  },
+  {
+    "id": 6,
+    "codigo": "PRD-006",
+    "nome": "Sensor Óptico de Barreira 24V",
+    "categoria": "Instrumentação",
+    "preco": 260.00,
+    "estoque": 22,
+    "unidade": "PC",
+    "localizacao": "Gaveteiro 14"
+  }
+]

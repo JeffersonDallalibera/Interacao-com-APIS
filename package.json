@@ -1,0 +1,23 @@
+{
+  "name": "api-estatica-logistica-senai",
+  "version": "1.0.0",
+  "description": "API RESTful Estática com OpenAPI 3.0 e Swagger UI para ensino de consumo de dados no Front-End e testes no Postman",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "keywords": [
+    "senai",
+    "api",
+    "openapi",
+    "swagger",
+    "swagger-ui",
+    "json",
+    "rest",
+    "frontend",
+    "postman"
+  ],
+  "author": "Prof. Jefferson Miguel Dallalibera",
+  "license": "MIT"
+}

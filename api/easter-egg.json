@@ -1,0 +1,21 @@
+{
+  "status": 200,
+  "easter_egg": "🎉 PARABÉNS! VOCÊ ENCONTROU O ENDPOINT SECRETO DA API! 🎉",
+  "recompensa": "+1.0 PONTO BÔNUS NA MÉDIA DA UNIDADE CURRICULAR",
+  "recado_do_professor": "🤫 Shhh! Não mostre para o seu colega ao lado, estou de olho! Hahaha 👀",
+  "instituicao": "SESI SENAI Santa Catarina",
+  "curso": "Técnico em Desenvolvimento de Sistemas / Informática para Internet",
+  "unidade_curricular": "Interação com APIs",
+  "docente": "Prof. Jefferson Miguel Dallalibera",
+  "referencia_tecnica": "FM-NP-220-SESI-SENAI-004",
+  "codigo_validacao": "SENAI-DEV-SECRET-2026-X9",
+  "instrucoes_de_resgate": [
+    "1. Tire um print completo da tela mostrando a requisição no Postman ou no Console F12 com a URL e o Status 200 OK.",
+    "2. Guarde o 'codigo_validacao' acima.",
+    "3. Chame o Prof. Jefferson discretamente no laboratório ou envie mensagem privada no Teams com o print e o código.",
+    "4. Explique oralmente em 1 frase: o que é um Header HTTP e como você descobriu essa rota oculta!",
+    "⚠️ REGRA DE OURO: Não mostre para o seu colega ao lado, estou de olho! Hahaha Se ele não souber explicar o que é um Header, ninguém ganha! 😂"
+  ],
+  "curiosidade_tecnica": "Em auditorias de segurança de software e pentest, a busca por rotas não documentadas ou endpoints ocultos é chamada de 'Hidden Endpoint Discovery' ou 'Directory Fuzzing'. Você acabou de aplicar na prática um conceito profissional de inspeção de APIs!",
+  "data_descoberta": "2026-10-20"
+}

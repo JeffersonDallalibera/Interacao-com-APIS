@@ -1,0 +1,38 @@
+[
+  {
+    "id": 1,
+    "razao_social": "Indústria Metalúrgica Alfa Ltda",
+    "cnpj": "12.345.678/0001-90",
+    "cidade": "Chapecó",
+    "estado": "SC",
+    "segmento": "Metalmecânico",
+    "status": "Ativo"
+  },
+  {
+    "id": 2,
+    "razao_social": "Alimentos Vale Verde S.A.",
+    "cnpj": "23.456.789/0001-01",
+    "cidade": "Maravilha",
+    "estado": "SC",
+    "segmento": "Alimentício",
+    "status": "Ativo"
+  },
+  {
+    "id": 3,
+    "razao_social": "Têxtil Catarinense S.A.",
+    "cnpj": "34.567.890/0001-12",
+    "cidade": "Joinville",
+    "estado": "SC",
+    "segmento": "Têxtil",
+    "status": "Ativo"
+  },
+  {
+    "id": 4,
+    "razao_social": "Logística & Cargas Sul Express",
+    "cnpj": "45.678.901/0001-23",
+    "cidade": "São Miguel do Oeste",
+    "estado": "SC",
+    "segmento": "Transportes",
+    "status": "Ativo"
+  }
+]

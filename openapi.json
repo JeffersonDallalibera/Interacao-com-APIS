@@ -1,0 +1,356 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "TaskFlow Logistics API • SESI SENAI",
+    "description": "API RESTful Educacional desenvolvida para a Unidade Curricular **Interação com APIs** (Curso Técnico em Desenvolvimento de Sistemas / Informática para Internet).\n\n### 🎓 Objetivo de Aprendizagem\n- Compreender a estrutura de respostas no formato **JSON**.\n- Praticar requisições HTTP pelo método **GET**.\n- Testar endpoints no **Postman** e no terminal com **Node.js / cURL**.\n- Consumir dados assincronamente no Front-End usando `fetch()` e renderizar dinamicamente no DOM.\n\n### 🏢 Cenário Industrial (Situação de Aprendizagem)\nSimulação do sistema de gestão logística da fábrica inteligente *TaskFlow Industrial*, monitorando movimentações de peças, maquinários e sensores entre polos industriais de Santa Catarina.",
+    "version": "1.0.0",
+    "contact": {
+      "name": "Prof. Jefferson Miguel Dallalibera",
+      "url": "https://github.com"
+    },
+    "license": {
+      "name": "MIT License",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "servers": [
+    {
+      "url": "./",
+      "description": "Servidor Atual / Relativo (GitHub Pages ou Host Local)"
+    },
+    {
+      "url": "http://localhost:3000",
+      "description": "Servidor Local Node.js (node server.js)"
+    },
+    {
+      "url": "http://127.0.0.1:5500",
+      "description": "VS Code Live Server"
+    }
+  ],
+  "tags": [
+    {
+      "name": "Ordens de Serviço",
+      "description": "Monitoramento de despachos, transportes e montagens de equipamentos"
+    },
+    {
+      "name": "Produtos e Estoque",
+      "description": "Inventário de peças sobressalentes, CLPs, sensores e motores industriais"
+    },
+    {
+      "name": "Clientes Industriais",
+      "description": "Cadastro e localização de indústrias parceiras no estado de Santa Catarina"
+    }
+  ],
+  "paths": {
+    "/api/ordens.json": {
+      "get": {
+        "tags": ["Ordens de Serviço"],
+        "summary": "Listar todas as Ordens de Serviço",
+        "description": "Retorna a lista completa de ordens de serviço (OS) da logística com código, cliente, status operacional, nível de prioridade e cidade de destino.",
+        "operationId": "getOrdensServico",
+        "responses": {
+          "200": {
+            "description": "Lista de ordens recuperada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/OrdemDeServico"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "numero": "OS-1042",
+                    "cliente": "Indústria Metalúrgica Alfa",
+                    "status": "Em Transporte",
+                    "prioridade": "Alta",
+                    "item": "Motor Trifásico 15HP",
+                    "quantidade": 2,
+                    "data": "2026-10-20",
+                    "destino": "Chapecó - SC",
+                    "responsavel": "Carlos Eduardo"
+                  },
+                  {
+                    "id": 2,
+                    "numero": "OS-1043",
+                    "cliente": "Alimentos Vale Verde",
+                    "status": "Pendente",
+                    "prioridade": "Média",
+                    "item": "Sensor Óptico de Linha",
+                    "quantidade": 10,
+                    "data": "2026-10-20",
+                    "destino": "Maravilha - SC",
+                    "responsavel": "Mariana Souza"
+                  },
+                  {
+                    "id": 3,
+                    "numero": "OS-1044",
+                    "cliente": "Têxtil Catarinense S.A.",
+                    "status": "Concluído",
+                    "prioridade": "Baixa",
+                    "item": "Rolamento Blindado 6205",
+                    "quantidade": 50,
+                    "data": "2026-10-19",
+                    "destino": "Joinville - SC",
+                    "responsavel": "Felipe Mendes"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/produtos.json": {
+      "get": {
+        "tags": ["Produtos e Estoque"],
+        "summary": "Listar catálogo de produtos e componentes",
+        "description": "Retorna o catálogo de peças, atuadores, sensores, CLPs e motores industriais disponíveis no almoxarifado com quantidade em estoque e localização de prateleira.",
+        "operationId": "getProdutos",
+        "responses": {
+          "200": {
+            "description": "Catálogo de produtos retornado com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Produto"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "codigo": "PRD-001",
+                    "nome": "Motor Trifásico 15HP",
+                    "categoria": "Elétrica Industrial",
+                    "preco": 3450.0,
+                    "estoque": 14,
+                    "unidade": "UN",
+                    "localizacao": "Corredor A - Prateleira 02"
+                  },
+                  {
+                    "id": 2,
+                    "codigo": "PRD-002",
+                    "nome": "CLP Siemens S7-1200",
+                    "categoria": "Automação",
+                    "preco": 4890.0,
+                    "estoque": 6,
+                    "unidade": "UN",
+                    "localizacao": "Armário Seguro 01"
+                  },
+                  {
+                    "id": 3,
+                    "codigo": "PRD-003",
+                    "nome": "Inversor de Frequência WEG 7.5kW",
+                    "categoria": "Automação",
+                    "preco": 2150.0,
+                    "estoque": 9,
+                    "unidade": "UN",
+                    "localizacao": "Corredor B - Prateleira 04"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/clientes.json": {
+      "get": {
+        "tags": ["Clientes Industriais"],
+        "summary": "Listar indústrias e clientes parceiros",
+        "description": "Retorna a relação de empresas parceiras atendidas pela logística industrial, com Razão Social, CNPJ, localização em Santa Catarina e segmento de mercado.",
+        "operationId": "getClientes",
+        "responses": {
+          "200": {
+            "description": "Relação de parceiros retornada com sucesso.",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/Cliente"
+                  }
+                },
+                "example": [
+                  {
+                    "id": 1,
+                    "razao_social": "Indústria Metalúrgica Alfa Ltda",
+                    "cnpj": "12.345.678/0001-90",
+                    "cidade": "Chapecó",
+                    "estado": "SC",
+                    "segmento": "Metalmecânico",
+                    "status": "Ativo"
+                  },
+                  {
+                    "id": 2,
+                    "razao_social": "Alimentos Vale Verde S.A.",
+                    "cnpj": "23.456.789/0001-01",
+                    "cidade": "Maravilha",
+                    "estado": "SC",
+                    "segmento": "Alimentício",
+                    "status": "Ativo"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "OrdemDeServico": {
+        "type": "object",
+        "required": ["id", "numero", "cliente", "status", "prioridade", "item", "quantidade", "data", "destino", "responsavel"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "description": "Identificador numérico sequencial da OS"
+          },
+          "numero": {
+            "type": "string",
+            "example": "OS-1042",
+            "description": "Código identificador formal da ordem de serviço"
+          },
+          "cliente": {
+            "type": "string",
+            "example": "Indústria Metalúrgica Alfa",
+            "description": "Nome da empresa contratante ou destinatária"
+          },
+          "status": {
+            "type": "string",
+            "enum": ["Em Transporte", "Pendente", "Concluído", "Em Análise"],
+            "example": "Em Transporte",
+            "description": "Estado operacional da ordem"
+          },
+          "prioridade": {
+            "type": "string",
+            "enum": ["Alta", "Média", "Baixa"],
+            "example": "Alta",
+            "description": "Nível de urgência da entrega ou atendimento"
+          },
+          "item": {
+            "type": "string",
+            "example": "Motor Trifásico 15HP",
+            "description": "Descrição do item ou maquinário movimentado"
+          },
+          "quantidade": {
+            "type": "integer",
+            "example": 2,
+            "description": "Volume ou unidades do item"
+          },
+          "data": {
+            "type": "string",
+            "format": "date",
+            "example": "2026-10-20",
+            "description": "Data de emissão/registro da OS (formato ISO 8601 AAAA-MM-DD)"
+          },
+          "destino": {
+            "type": "string",
+            "example": "Chapecó - SC",
+            "description": "Cidade e estado de destino da carga"
+          },
+          "responsavel": {
+            "type": "string",
+            "example": "Carlos Eduardo",
+            "description": "Técnico ou operador encarregado"
+          }
+        }
+      },
+      "Produto": {
+        "type": "object",
+        "required": ["id", "codigo", "nome", "categoria", "preco", "estoque", "unidade", "localizacao"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "description": "Identificador numérico do produto"
+          },
+          "codigo": {
+            "type": "string",
+            "example": "PRD-001",
+            "description": "Código interno de SKU da peça"
+          },
+          "nome": {
+            "type": "string",
+            "example": "Motor Trifásico 15HP",
+            "description": "Descrição comercial do componente"
+          },
+          "categoria": {
+            "type": "string",
+            "example": "Elétrica Industrial",
+            "description": "Família de suprimentos à qual o item pertence"
+          },
+          "preco": {
+            "type": "number",
+            "format": "float",
+            "example": 3450.0,
+            "description": "Valor unitário de reposição em Reais (R$)"
+          },
+          "estoque": {
+            "type": "integer",
+            "example": 14,
+            "description": "Saldo físico disponível no depósito"
+          },
+          "unidade": {
+            "type": "string",
+            "example": "UN",
+            "description": "Unidade de medida (UN, PC, MT, KG)"
+          },
+          "localizacao": {
+            "type": "string",
+            "example": "Corredor A - Prateleira 02",
+            "description": "Posição física no armazém"
+          }
+        }
+      },
+      "Cliente": {
+        "type": "object",
+        "required": ["id", "razao_social", "cnpj", "cidade", "estado", "segmento", "status"],
+        "properties": {
+          "id": {
+            "type": "integer",
+            "example": 1,
+            "description": "Identificador numérico do cliente"
+          },
+          "razao_social": {
+            "type": "string",
+            "example": "Indústria Metalúrgica Alfa Ltda",
+            "description": "Razão social cadastrada na Receita Federal"
+          },
+          "cnpj": {
+            "type": "string",
+            "example": "12.345.678/0001-90",
+            "description": "Número do CNPJ formatado"
+          },
+          "cidade": {
+            "type": "string",
+            "example": "Chapecó",
+            "description": "Município sede da indústria"
+          },
+          "estado": {
+            "type": "string",
+            "example": "SC",
+            "description": "Unidade federativa (Sigla)"
+          },
+          "segmento": {
+            "type": "string",
+            "example": "Metalmecânico",
+            "description": "Ramo de atividade industrial"
+          },
+          "status": {
+            "type": "string",
+            "example": "Ativo",
+            "description": "Situação cadastral da conta do cliente"
+          }
+        }
+      }
+    }
+  }
+}
